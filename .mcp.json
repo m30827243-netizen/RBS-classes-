@@ -13,7 +13,7 @@
     },
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${PWD}"],
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/"],
       "type": "stdio"
     },
     "memory": {
