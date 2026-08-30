@@ -2,75 +2,21 @@
 <html lang=hi><head>
 <meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=theme-color content=#0a1628>
-<meta name=apple-mobile-web-app-capable content=yes>
-<title>RBS Classes | Phase 3</title>
-<meta name=description content="RBS Classes digital platform. Live, tests, AI tutor, certificates. Class 1-10. Pali Majhila Tol.">
+<title>RBS Classes</title>
 <link rel=manifest href=/manifest.json>
 <script src=https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2></script>
 <style>
-:root{--n:#0a1628;--n2:#12263f;--g:#f5c518;--c:#152238;--t:#f1f5f9;--m:#94a3b8}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,sans-serif;background:var(--n);color:var(--t);max-width:480px;margin:0 auto;min-height:100dvh}
+:root{--n:#0a1628;--g:#f5c518;--c:#152238;--t:#f1f5f9;--m:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui;background:var(--n);color:var(--t);max-width:480px;margin:0 auto;min-height:100dvh}
 .sc{display:none;min-height:100dvh;flex-direction:column}.sc.on{display:flex}
-#sp{align-items:center;justify-content:center;text-align:center;padding:24px}
-.spin{width:22px;height:22px;border:3px solid #333;border-top-color:var(--g);border-radius:50%;margin:16px auto;animation:s .8s linear infinite}@keyframes s{to{transform:rotate(360deg)}}
+.btn{width:100%;padding:11px;border:0;border-radius:10px;font-weight:800;background:var(--g);color:var(--n)}
 .card{background:var(--c);margin:12px;padding:14px;border-radius:14px;border:1px solid #f5c51840}
-input,select,textarea{width:100%;padding:10px;margin:0 0 8px;border-radius:10px;border:1px solid #333;background:#0006;color:#fff;font-size:14px}
-.btn{width:100%;padding:11px;border:0;border-radius:10px;font-weight:800;background:var(--g);color:var(--n);cursor:pointer}
-.tabs{display:flex;gap:6px;margin-bottom:10px}.tabs button{flex:1;padding:8px;border:0;border-radius:8px;background:#0005;color:var(--m)}.tabs button.on{background:var(--g);color:var(--n)}
-.top{padding:8px 12px;background:var(--n2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5}
-.logo{width:40px;height:40px;border-radius:10px;border:2px solid var(--g);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:var(--g)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:10px}
-.mi{background:var(--c);padding:10px 3px;text-align:center;border-radius:12px;font-size:10px;cursor:pointer}
-.bn{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--n2);display:flex;padding:5px 0;z-index:10;border-top:1px solid #f5c51830}
-.bn button{flex:1;background:0;border:0;color:var(--m);font-size:9px}.bn button.on{color:var(--g)}
-.pg{display:none;padding:10px 12px 68px}.pg.on{display:block}
-.lc{background:var(--c);padding:10px;border-radius:12px;margin-bottom:7px;display:flex;gap:8px;align-items:center}
-.lc .f{flex:1;min-width:0}b{display:block;font-size:13px}span.s{font-size:11px;color:var(--m)}
-.chip{padding:5px 9px;border-radius:99px;background:var(--g);color:var(--n);font-size:11px;font-weight:800;border:0;text-decoration:none;display:inline-block;cursor:pointer}
-.chip-o{background:0;border:1px solid #f5c51840;color:var(--g)}
-.opt{display:block;width:100%;text-align:left;padding:9px;margin:0 0 5px;border-radius:8px;border:1.5px solid #333;background:#0004;color:#fff}
-.opt.sel{border-color:var(--g)}.msg{padding:7px;margin-top:7px;border-radius:8px;font-size:12px}
-.ok{background:#14532d;color:#86efac}.err{background:#450a0a;color:#fca5a5}
-.back{background:0;border:0;color:var(--g);font-weight:700;margin-bottom:6px;cursor:pointer}
-.tm{color:var(--g);font-weight:800}
-.role{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px;font-size:12px}
-.role label{display:flex;gap:4px;align-items:center;padding:5px;border:1px solid #333;border-radius:8px}
-.role input{width:auto;margin:0}
-.hero{background:linear-gradient(135deg,#1a3a5c,#0a1628);padding:20px 16px;text-align:center;border-bottom:2px solid #f5c51850}
-.avatar{width:56px;height:56px;border-radius:50%;background:#12263f;border:2px solid var(--g);display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--g);font-size:14px;flex-shrink:0}
-.sec{font-size:15px;font-weight:800;margin:4px 0 10px;color:var(--g)}
-.banner-box{background:linear-gradient(90deg,#f5c51822,#f5c51808);border:1px solid #f5c51840;border-radius:12px;padding:12px;margin:10px 12px;text-align:center}
-.stats{display:flex;gap:8px;padding:0 12px 8px}
-.stat{flex:1;background:var(--c);border-radius:12px;padding:10px;text-align:center;border:1px solid #f5c51830}
-.stat .n{font-size:18px;font-weight:900;color:var(--g)}.stat .l{font-size:10px;color:var(--m)}
-.chat{max-height:220px;overflow:auto;margin-bottom:8px}
-.bubble{padding:8px 10px;border-radius:12px;margin-bottom:6px;font-size:13px;line-height:1.4}
-.bubble.me{background:#1e3a5f;margin-left:20%}
-.bubble.ai{background:#0f1f33;border:1px solid #f5c51830;margin-right:20%}
-.cert{background:#fff;color:#111;padding:16px;border-radius:8px;text-align:center;border:4px double #f5c518}
-.cert h2{color:#0a1628;font-size:16px}.cert .gold{color:#b8860b;font-weight:800}
+input{width:100%;padding:10px;margin:0 0 8px;border-radius:10px;border:1px solid #333;background:#0006;color:#fff}
 </style></head><body>
-<div id=sp class="sc on"><div>
-<div class=logo style="width:96px;height:96px;font-size:22px;margin:0 auto 12px;border-radius:20px">RBS</div>
-<div style="color:var(--g);font-weight:900;font-size:22px">RBS CLASSES</div>
-<div style="color:var(--m);font-size:12px;margin-top:6px">Phase 3 · Learn. Practice. Grow.</div>
-<div class=spin></div></div></div>
-<div id=au class=sc><div class=card>
-<div class=logo style="width:64px;height:64px;margin:0 auto 12px;border-radius:14px;font-size:14px">RBS</div>
-<div class=tabs><button class=on id=tl onclick="tab('l')">Login</button><button id=ts onclick="tab('s')">Sign Up</button></div>
-<div id=bl><input id=le type=email placeholder=Email><input id=lp type=password placeholder=Password><button class=btn onclick=login()>Login</button></div>
-<div id=bs style=display:none>
-<input id=sn placeholder="Full Name"><input id=se type=email placeholder=Email><input id=sp type=tel placeholder=Phone><input id=sw type=password placeholder="Password min 6">
-<div class=role>
-<label><input type=radio name=role value=student checked> Student</label>
-<label><input type=radio name=role value=parent> Parent</label>
-<label><input type=radio name=role value=teacher> Teacher</label>
-<label><input type=radio name=role value=admin> Admin</label>
-</div>
-<select id=sclass><option value="">Class</option><option>1-5</option><option>6-8</option><option>9</option><option>10</option></select>
-<button class=btn onclick=signup()>Create Account</button></div>
-<div id=am></div>
-</div></div>
-<p style="text-align:center;color:#94a3b8;padding:20px">Loading app… <a href="https://rbs-classes-web.vercel.app" style="color:#f5c518">Open live app</a></p>
+<div id=sp class="sc on" style="align-items:center;justify-content:center;text-align:center;padding:40px">
+<div style="color:var(--g);font-weight:900;font-size:24px">RBS CLASSES</div>
+<p style="color:var(--m);margin:12px 0">Full app loading from production bundle…</p>
+<p><a href="https://rbs-classes-web.vercel.app/" style="color:var(--g)">Refresh</a></p>
 <script src=/app.js></script>
+</div>
 </body></html>
