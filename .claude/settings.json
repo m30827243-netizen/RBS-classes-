@@ -1,0 +1,38 @@
+{
+  "model": "claude-opus-4-1-20250805",
+  "enableAllProjectMcpServers": true,
+  "env": {
+    "DEBUG": "true",
+    "CI": "true",
+    "NODE_ENV": "production",
+    "LOG_LEVEL": "info"
+  },
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Replace",
+      "Read",
+      "NotebookEditCell",
+      "TaskOutput",
+      "WebFetch",
+      "MCP"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[Claude] Executing command...'"
+          }
+        ]
+      }
+    ]
+  },
+  "contextWindow": 1000000,
+  "maxOutputTokens": 4096
+}
