@@ -1,0 +1,119 @@
+name: Claude AI Agent - Full Access
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'Task for Claude'
+        required: true
+        type: string
+      max_turns:
+        description: 'Max conversation turns'
+        required: false
+        default: '20'
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  discussions: write
+  actions: read
+  checks: read
+  workflows: write
+
+jobs:
+  claude-agent:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create Claude Settings File
+        run: |
+          mkdir -p /tmp/claude
+          cat > /tmp/claude-settings.json << 'EOF'
+          {
+            "model": "claude-opus-4-1-20250805",
+            "enableAllProjectMcpServers": true,
+            "env": {
+              "DEBUG": "true",
+              "CI": "true",
+              "NODE_ENV": "production"
+            },
+            "permissions": {
+              "allow": [
+                "Bash",
+                "Edit",
+                "Replace",
+                "Read",
+                "NotebookEditCell",
+                "TaskOutput"
+              ]
+            },
+            "hooks": {
+              "PreToolUse": [
+                {
+                  "matcher": "Bash",
+                  "hooks": [
+                    {
+                      "type": "command",
+                      "command": "echo 'Executing bash command...'"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+          EOF
+          cat /tmp/claude-settings.json
+
+      - name: Create MCP Config
+        run: |
+          mkdir -p /tmp/mcp
+          cat > /tmp/mcp-config.json << 'EOF'
+          {
+            "mcpServers": {
+              "sequential-thinking": {
+                "command": "npx",
+                "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+              },
+              "github": {
+                "command": "npx",
+                "args": ["-y", "@modelcontextprotocol/server-github"],
+                "env": {
+                  "GITHUB_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
+                }
+              }
+            }
+          }
+          EOF
+          cat /tmp/mcp-config.json
+
+      - name: Run Claude Agent
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: ${{ github.event.inputs.prompt || 'Analyze the repository and provide a comprehensive summary of all files, structure, and functionality.' }}
+          settings: /tmp/claude-settings.json
+          claude_args: |
+            --model claude-opus-4-1-20250805
+            --max-turns ${{ github.event.inputs.max_turns || 20 }}
+            --mcp-config /tmp/mcp-config.json
+            --allowedTools "Bash,Edit,Replace,Read,NotebookEditCell,TaskOutput,mcp__sequential-thinking__sequentialthinking,mcp__github__search_repositories,mcp__github__get_repository"
+            --show-full-output
+          additional_permissions: |
+            actions: read
+            checks: read
+            discussions: read
+
+      - name: Create Summary Comment
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            console.log('✅ Claude Agent Execution Complete!');
+            console.log('All files processed with full access permissions');
