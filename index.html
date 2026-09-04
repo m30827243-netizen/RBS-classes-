@@ -1,117 +1,50 @@
-<!DOCTYPE html>
-<html lang=hi>
-<head>
-<meta charset=UTF-8>
-<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name=theme-color content=#0a1628>
-<title>RBS Classes</title>
-<link rel=manifest href=/manifest.json>
-<style>
-:root{--n:#0a1628;--n2:#12263f;--g:#f5c518;--c:#152238;--t:#f1f5f9;--m:#94a3b8}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,sans-serif;background:var(--n);color:var(--t);max-width:480px;margin:0 auto;min-height:100dvh}
-.sc{display:none;min-height:100dvh;flex-direction:column}.sc.on{display:flex}
-#sp{align-items:center;justify-content:center;text-align:center;padding:24px}
-.spin{width:22px;height:22px;border:3px solid #333;border-top-color:var(--g);border-radius:50%;margin:14px auto;animation:s .7s linear infinite}
-@keyframes s{to{transform:rotate(360deg)}}
-.logo{width:72px;height:72px;border-radius:16px;border:2px solid var(--g);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:var(--g);margin:0 auto 12px}
-.card{background:var(--c);margin:12px;padding:16px;border-radius:14px;border:1px solid #f5c51840}
-input,select{width:100%;padding:11px;margin:0 0 8px;border-radius:10px;border:1px solid #334155;background:#0006;color:#fff}
-.btn{width:100%;padding:12px;border:0;border-radius:10px;font-weight:800;background:var(--g);color:var(--n);cursor:pointer;margin-top:6px}
-.btn-g{background:#1e3a5f;color:var(--g);border:1px solid #f5c51840}
-.tabs{display:flex;gap:6px;margin-bottom:10px}
-.tabs button{flex:1;padding:8px;border:0;border-radius:8px;background:#0005;color:var(--m)}
-.tabs button.on{background:var(--g);color:var(--n)}
-.top{padding:10px 12px;background:var(--n2);display:flex;justify-content:space-between;align-items:center}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px}
-.mi{background:var(--c);padding:14px 4px;text-align:center;border-radius:12px;font-size:11px;cursor:pointer;border:1px solid #f5c51822}
-.mi .ic{font-size:22px;display:block;margin-bottom:4px}
-.bn{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--n2);display:flex;padding:6px 0;border-top:1px solid #f5c51830;z-index:40}
-.bn button{flex:1;background:0;border:0;color:var(--m);font-size:10px;padding:6px}
-.bn button.on{color:var(--g)}.bn .ic{display:block;font-size:18px}
-.pg{display:none;padding:12px 12px 72px;flex:1;overflow:auto}.pg.on{display:block}
-.msg{padding:8px;border-radius:8px;margin-top:8px;font-size:13px}
-.msg.err{background:#7f1d1d55;color:#fecaca}.msg.ok{background:#14532d55;color:#bbf7d0}
-.tip{color:var(--m);font-size:12px;margin:6px 0}
-.role{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;margin:8px 0;color:var(--m)}
-h2{font-size:16px;margin:8px 0;color:var(--g)}
-.stat{display:flex;gap:8px;margin:8px 0}
-.stat div{flex:1;background:var(--c);padding:10px;border-radius:10px;text-align:center;font-size:12px}
-.stat b{display:block;color:var(--g);font-size:18px}
-</style>
-</head>
-<body>
-<div id=sp class="sc on"><div><div class=logo>RBS</div><div style="color:var(--g);font-weight:900;font-size:20px">RBS CLASSES</div><div style="color:var(--m);font-size:12px;margin-top:6px">Learn - Try - Play - Apply</div><div class=spin></div><p class=tip id=bootMsg>Opening...</p></div></div>
-<div id=au class=sc><div class=card>
-<div class=logo style="width:56px;height:56px;font-size:13px">RBS</div>
-<p class=tip style="text-align:center">Pali Majhila Tol</p>
-<div class=tabs><button class=on id=tl onclick="tab('l')">Login</button><button id=ts onclick="tab('s')">Sign Up</button></div>
-<div id=bl>
-<input id=le type=email placeholder=Email>
-<input id=lp type=password placeholder=Password>
-<button class=btn onclick="login()">Login</button>
-<button class="btn btn-g" onclick="guestEnter()">Continue as Guest</button>
-</div>
-<div id=bs style="display:none">
-<input id=sn placeholder="Full name">
-<input id=se type=email placeholder=Email>
-<input id=sph type=tel placeholder=Phone>
-<input id=sw type=password placeholder="Password min 6">
-<div class=role>
-<label><input type=radio name=role value=student checked> Student</label>
-<label><input type=radio name=role value=parent> Parent</label>
-<label><input type=radio name=role value=teacher> Teacher</label>
-<label><input type=radio name=role value=admin> Admin</label>
-</div>
-<select id=sclass><option value="">Class</option><option>1-5</option><option>6-8</option><option>9</option><option>10</option></select>
-<button class=btn onclick="signup()">Create account</button>
-</div>
-<div id=am></div>
-</div></div>
+<!DOCTYPE html><html lang=hi><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=theme-color content=#0a1628><title>RBS Classes | Full Platform</title><meta name=description content="RBS Classes Pali Majhila Tol - Class 1-10. Learn Practice Grow."><link rel=manifest href=/manifest.json><script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"RBS Classes","telephone":"+91-8873880542","founder":"Bhagwan Ji Sharma","address":{"@type":"PostalAddress","addressLocality":"Pali Majhila Tol","addressRegion":"Bihar","addressCountry":"IN"}}</script><style>:root{--n:#0a1628;--n2:#12263f;--g:#f5c518;--c:#152238;--t:#f1f5f9;--m:#94a3b8}*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui,sans-serif;background:var(--n);color:var(--t);max-width:480px;margin:0 auto;min-height:100dvh}.sc{display:none;min-height:100dvh;flex-direction:column}.sc.on{display:flex}#sp{align-items:center;justify-content:center;text-align:center;padding:24px}.spin{width:22px;height:22px;border:3px solid #333;border-top-color:var(--g);border-radius:50%;margin:14px auto;animation:s .7s linear infinite}@keyframes s{to{transform:rotate(360deg)}}.logo{width:40px;height:40px;border-radius:10px;border:2px solid var(--g);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:var(--g)}.card{background:var(--c);margin:12px;padding:14px;border-radius:14px;border:1px solid #f5c51840}input,select,textarea{width:100%;padding:10px;margin:0 0 8px;border-radius:10px;border:1px solid #334155;background:#0006;color:#fff;font-size:14px}.btn{width:100%;padding:11px;border:0;border-radius:10px;font-weight:800;background:var(--g);color:var(--n);cursor:pointer}.btn-g{background:#1e3a5f;color:var(--g);border:1px solid #f5c51840}.tabs{display:flex;gap:6px;margin-bottom:10px}.tabs button{flex:1;padding:8px;border:0;border-radius:8px;background:#0005;color:var(--m)}.tabs button.on{background:var(--g);color:var(--n)}.top{padding:8px 12px;background:var(--n2);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:10px}.mi{background:var(--c);padding:11px 3px;text-align:center;border-radius:12px;font-size:10px;cursor:pointer;border:1px solid #f5c51818}.mi .ic{font-size:22px;display:block;margin-bottom:4px}.bn{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:var(--n2);display:flex;padding:6px 0;z-index:30;border-top:1px solid #f5c51830}.bn button{flex:1;background:0;border:0;color:var(--m);font-size:10px}.bn button.on{color:var(--g)}.bn .ic{display:block;font-size:18px}.pg{display:none;padding:12px 12px 72px;overflow:auto}.pg.on{display:block}.msg{padding:8px;border-radius:8px;margin-top:8px;font-size:13px}.msg.err{background:#7f1d1d55;color:#fecaca}.msg.ok{background:#14532d55;color:#bbf7d0}.tip{color:var(--m);font-size:12px;margin:6px 0}.role{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;margin:8px 0;color:var(--m)}h2,.sec{font-size:15px;margin:8px 0;color:var(--g)}.stat{display:flex;gap:8px;margin:8px 0}.stat div{flex:1;background:var(--c);padding:10px;border-radius:10px;text-align:center;font-size:12px}.stat b{display:block;color:var(--g);font-size:18px}.lc{background:var(--c);margin:8px 0;padding:10px;border-radius:10px;border:1px solid #f5c51822}.chip{display:inline-block;padding:4px 8px;background:#1e3a5f;color:var(--g);border-radius:8px;font-size:11px;text-decoration:none}.opt{display:block;width:100%;text-align:left;padding:10px;margin:4px 0;border-radius:10px;border:1px solid #334155;background:#0005;color:#fff}.opt.sel{border-color:var(--g);background:#1e3a5f}.wire{display:inline-block;padding:10px 14px;margin:4px;border-radius:10px;border:1px solid #334155;cursor:pointer}.wire.on{border-color:var(--g);background:#1e3a5f}.bulb{font-size:40px;filter:grayscale(1)}.bulb.lit{filter:none}.back{background:0;border:0;color:var(--g);margin:8px 0;cursor:pointer}</style></head><body>
+<div id=sp class="sc on"><div><div class=logo style="width:88px;height:88px;font-size:20px;margin:0 auto 10px;border-radius:18px">RBS</div><div style="color:var(--g);font-weight:900;font-size:20px">RBS CLASSES</div><div style="color:var(--m);font-size:12px;margin-top:6px">Learn → Try → Play → Apply</div><div class=spin></div><p class=tip id=bootMsg>Opening...</p></div></div>
+<script>(function(){function show(id){var a=document.querySelectorAll('.sc');for(var i=0;i<a.length;i++)a[i].classList.remove('on');var e=document.getElementById(id);if(e)e.classList.add('on')}window.__rbsShow=show;setTimeout(function(){show('au')},280)})();</script>
+<div id=au class=sc><div class=card><div class=logo style="width:60px;height:60px;margin:0 auto 10px;border-radius:14px;font-size:13px">RBS</div><p class=tip style=text-align:center>Pali Majhila Tol · Secure login</p><div class=tabs><button class=on id=tl onclick="tab('l')">Login</button><button id=ts onclick="tab('s')">Sign Up</button></div><div id=bl><input id=le type=email placeholder=Email><input id=lp type=password placeholder=Password><button class=btn onclick=login()>Login</button><button class="btn btn-g" style=margin-top:8px onclick=guestEnter()>Continue as Guest</button></div><div id=bs style=display:none><input id=sn placeholder=Name><input id=se type=email placeholder=Email><input id=sph type=tel placeholder=Phone><input id=sw type=password placeholder="Password min 6"><div class=role><label><input type=radio name=role value=student checked> Student</label><label><input type=radio name=role value=parent> Parent</label><label><input type=radio name=role value=teacher> Teacher</label><label><input type=radio name=role value=admin> Admin</label></div><select id=sclass><option value="">Class</option><option>1-5</option><option>6-8</option><option>9</option><option>10</option></select><button class=btn onclick=signup()>Create</button></div><div id=am></div></div></div>
 <div id=ap class=sc>
-<div class=top><div><b style="color:var(--g)">RBS</b> <span id=gr style="font-size:12px;color:var(--m)">Hi</span></div>
-<button class="btn btn-g" style="width:auto;padding:6px 10px;font-size:11px" onclick="logout()">Logout</button></div>
-<div id=ph class="pg on">
-<h2>Home</h2>
-<div class=stat><div><b id=stPts>0</b>XP</div><div><b id=stStreak>0</b>Streak</div><div><b id=stLvl>1</b>Level</div></div>
-<div class=grid>
+<div class=top><div style=display:flex;align-items:center;gap:8px><div class=logo>RBS</div><div><b style=color:var(--g)>RBS</b><div id=gr style=font-size:11px;color:var(--m)>Hi</div></div></div><button class="btn btn-g" style=width:auto;padding:6px 10px;font-size:11px onclick=logout()>Logout</button></div>
+<div id=ph class="pg on"><div class=stat><div><b id=stPts>0</b>XP</div><div><b id=stStreak>0</b>Streak</div><div><b id=stLvl>1</b>Level</div></div><div class=grid>
 <div class=mi onclick="go('world')"><span class=ic>🌍</span>World</div>
 <div class=mi onclick="go('tests')"><span class=ic>📝</span>Tests</div>
 <div class=mi onclick="go('study')"><span class=ic>📚</span>Study</div>
 <div class=mi onclick="go('ai')"><span class=ic>🤖</span>AI</div>
 <div class=mi onclick="go('fees')"><span class=ic>💳</span>Fees</div>
-<div class=mi onclick="go('p')"><span class=ic>👤</span>Profile</div>
-</div>
-<p class=tip>WhatsApp: <a style="color:var(--g)" href="https://wa.me/918873880542">+91 8873880542</a></p>
-</div>
-<div id=pworld class=pg><h2>Learning World</h2>
-<div class=grid>
-<div class=mi onclick="alert('Science Lab')"><span class=ic>🔬</span>Science</div>
-<div class=mi onclick="alert('Math')"><span class=ic>📐</span>Math</div>
-<div class=mi onclick="alert('Geo')"><span class=ic>🗺️</span>Geo</div>
-<div class=mi onclick="alert('Civics')"><span class=ic>🏛️</span>Civics</div>
-<div class=mi onclick="alert('Money')"><span class=ic>💰</span>Money</div>
-<div class=mi onclick="alert('Hindi')"><span class=ic>📖</span>Hindi</div>
-</div>
-<button class="btn btn-g" onclick="go('h')">Back Home</button></div>
-<div id=ptests class=pg><h2>Tests</h2>
-<button class=btn onclick="startDemoTest()">Start Demo Math Test</button>
-<div id=quizBox style="display:none;margin-top:12px"><div id=tm style="color:var(--g);font-weight:700"></div><p id=qt></p><div id=qo></div>
-<button class=btn onclick="nextQ()" id=qnxt>Next</button></div>
-<div id=resBox style="display:none" class=card><h2>Result</h2><p id=rs></p>
-<button class="btn btn-g" onclick="go('h')">Home</button></div></div>
-<div id=pstudy class=pg><h2>Study Material</h2><div id=sl></div>
-<button class="btn btn-g" onclick="go('h')">Back</button></div>
-<div id=pai class=pg><h2>AI Partner</h2>
-<div id=chatBox class=card style="min-height:120px;font-size:13px"></div>
-<input id=aiQ placeholder="Math / Science..."><button class=btn onclick="askAI()">Ask</button>
-<button class="btn btn-g" onclick="go('h')">Back</button></div>
-<div id=pfees class=pg><h2>Fees</h2>
-<input id=payAmt type=number placeholder=Amount>
-<button class=btn onclick="payUPI()">Pay via WhatsApp</button>
-<button class="btn btn-g" onclick="go('h')">Back</button></div>
-<div id=pprof class=pg><h2>Profile</h2><p id=pn>-</p><p id=pro class=tip></p>
-<button class="btn btn-g" onclick="go('h')">Back</button></div>
+<div class=mi onclick="go('results')"><span class=ic>📊</span>Results</div>
+<div class=mi onclick="go('certificates')"><span class=ic>🏆</span>Cert</div>
+<div class=mi onclick="go('p')"><span class=ic>👤</span>Me</div>
+<div class=mi id=tt style=display:none onclick="go('teach')"><span class=ic>👨‍🏫</span>Teach</div>
+<div class=mi onclick="go('admin')"><span class=ic>⚙️</span>Admin</div>
+</div><div id=hn></div><p class=tip>WhatsApp <a style=color:var(--g) href=https://wa.me/918873880542>+91 8873880542</a></p></div>
+<div id=pworld class=pg><button class=back onclick="go('h')">← Back</button><div class=sec>Learning World</div><div class=grid>
+<div class=mi onclick="go('science')"><span class=ic>🔬</span>Science</div>
+<div class=mi onclick="go('math')"><span class=ic>📐</span>Math</div>
+<div class=mi onclick="go('geo')"><span class=ic>🗺️</span>Geo</div>
+<div class=mi onclick="go('civics')"><span class=ic>🏛️</span>Civics</div>
+<div class=mi onclick="go('money')"><span class=ic>💰</span>Money</div>
+<div class=mi onclick="go('hindi')"><span class=ic>📖</span>Hindi</div>
+<div class=mi onclick="go('games')"><span class=ic>🎮</span>Games</div>
+<div class=mi onclick="go('mission')"><span class=ic>🎯</span>Mission</div>
+</div></div>
+<div id=pscience class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Science Lab</div><p class=tip>Circuit: battery + switch + bulb</p><div><span class=wire id=bat onclick="togWire('bat')">🔋 Battery</span><span class=wire id=swi onclick="togWire('swi')">🔘 Switch</span><span class=wire id=bul onclick="togWire('bul')">💡 Bulb</span></div><div id=bulbEl class=bulb>💡</div><div id=cktMsg class=tip></div><hr style=border-color:#334155;margin:12px 0><p class=tip>Plant growth</p><label>Water <input id=water type=range min=0 max=100 value=40 oninput=grow()></label><span id=wV></span><label>Sun <input id=sun type=range min=0 max=100 value=40 oninput=grow()></label><span id=sV></span><div id=plantEl style=font-size:32px;text-align:center>🌱</div><button class=btn onclick=finishGrow()>Finish experiment</button></div>
+<div id=pmath class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Math Lab</div><p class=tip>Percent</p><input id=pctP type=number placeholder=%><input id=pctN type=number placeholder=Number><button class=btn onclick=pctCalc()>Calculate</button><div id=pctOut class=tip></div><p class=tip>Shopping discount</p><input id=shopItem type=number placeholder=Price><button class=btn onclick=shopCalc()>10% off</button><div id=shopOut class=tip></div></div>
+<div id=pgeo class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Geography</div><div id=geoQ class=card></div><div id=geoOpts></div><div id=geoMsg class=tip></div><button class=btn onclick=showGeo()>Next</button></div>
+<div id=pcivics class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Civics Budget</div><p class=tip>Allocate 100 units</p><label>Education <input id=bEd type=range min=0 max=100 value=30 oninput=updBudget()></label><span id=vEd></span><label>Health <input id=bHe type=range min=0 max=100 value=25 oninput=updBudget()></label><span id=vHe></span><label>Roads <input id=bRo type=range min=0 max=100 value=25 oninput=updBudget()></label><span id=vRo></span><label>Farm <input id=bFa type=range min=0 max=100 value=20 oninput=updBudget()></label><span id=vFa></span><div id=bTot class=tip></div><button class=btn onclick=runCM()>Submit plan +XP</button><div id=cmOut></div></div>
+<div id=pmoney class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Money Lab</div><input id=mFood type=number placeholder=Food><input id=mRent type=number placeholder=Rent><input id=mEdu type=number placeholder=Education><input id=mSave type=number placeholder=Save><button class=btn onclick=runMoney()>Check budget</button><div id=monOut class=tip></div></div>
+<div id=phindi class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Hindi Muhavra</div><div id=muhQ class=card></div><div id=muhOpts></div><div id=muhMsg class=tip></div><button class=btn onclick=showMuh()>Next</button></div>
+<div id=pgames class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Quiz Arena</div><button class=btn onclick=startGame()>Start 5Q</button><div id=gameBox style=display:none><div id=gameScore class=tip></div><div id=gameQ class=card></div><div id=gameOpts></div></div></div>
+<div id=pmission class=pg><button class=back onclick="go('world')">← World</button><div class=sec>Missions</div><textarea id=misMath placeholder="Math: explain one formula"></textarea><button class=btn onclick="submitMis('math')">Submit Math</button><textarea id=misMon placeholder="Money: weekly plan"></textarea><button class=btn onclick="submitMis('money')">Submit Money</button><textarea id=misHin placeholder="Hindi: 1 muhavra sentence"></textarea><button class=btn onclick="submitMis('hindi')">Submit Hindi</button><div id=misOut></div></div>
+<div id=ptests class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>Tests</div><div id=tlst></div></div>
+<div id=pquiz class=pg><div class=top><span id=tm style=color:var(--g);font-weight:700></span><span id=qn></span></div><div id=qt class=card></div><div id=qo></div><button class=btn id=qnxt onclick=nextQ()>Next</button></div>
+<div id=pres class=pg><div class=sec>Result</div><div class=stat><div><b id=rs>0%</b>Score</div><div><b id=rd>0</b>Correct</div><div><b id=rp>+0</b>XP</div></div><div id=weakBox class=tip style=display:none></div><button class=btn onclick="go('tests')">More tests</button><button class="btn btn-g" onclick="go('h')">Home</button></div>
+<div id=presults class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>My Results</div><div id=rl></div></div>
+<div id=pstudy class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>Study Material</div><div id=sl></div></div>
+<div id=pai class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>AI Learning Partner</div><div id=chatBox class=card style=min-height:140px;font-size:13px;max-height:240px;overflow:auto></div><input id=aiQ placeholder="Math / Science poocho..."><button class=btn onclick=askAI()>Ask</button></div>
+<div id=pfees class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>Fees</div><input id=payAmt type=number placeholder=Amount value=500><button class=btn onclick=saveFee()>Save + WhatsApp UPI</button><div id=payMsg class=tip></div></div>
+<div id=pcert class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>Certificate</div><div class=card style=text-align:center;border:2px solid var(--g)><div style=color:var(--g);font-weight:900>RBS CLASSES</div><p id=certName style=font-size:18px;margin:10px>Student</p><p id=certMeta class=tip></p><p class=tip>Excellence Through Education</p></div><button class=btn onclick=window.print()>Print / PDF</button></div>
+<div id=pprof class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>Profile</div><p id=pn>-</p><p id=pro class=tip></p><div class=sec>Skills</div><div class=tip>Knowledge <b id=skK>0</b></div><div class=tip>Practice <b id=skP>0</b></div><div class=tip>Experiments <b id=skE>0</b></div><div class=tip>Life Skills <b id=skL>0</b></div><div id=pstats></div></div>
+<div id=pteach class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>Teacher Panel</div><input id=mt placeholder=Material title><input id=mu placeholder="PDF / file URL"><button class=btn onclick=saveMat()>Save material</button><div id=mm></div><input id=ntTitle placeholder=Notice title><button class=btn onclick=postNotice()>Publish notice</button><div id=ntMsg></div></div>
+<div id=padmin class=pg><button class=back onclick="go('h')">← Home</button><div class=sec>Admin · Enquiries</div><div id=ab></div></div>
 <nav class=bn>
 <button class=on data-p=h onclick="go('h')"><span class=ic>🏠</span>Home</button>
 <button data-p=world onclick="go('world')"><span class=ic>🌍</span>World</button>
@@ -121,60 +54,62 @@ h2{font-size:16px;margin:8px 0;color:var(--g)}
 </nav>
 </div>
 <script>
-(function(){
-  function show(id){
-    var all=document.querySelectorAll('.sc');
-    for(var i=0;i<all.length;i++) all[i].classList.remove('on');
-    var el=document.getElementById(id);
-    if(el) el.classList.add('on');
-  }
-  window.__rbsShow=show;
-  setTimeout(function(){ show('au'); var m=document.getElementById('bootMsg'); if(m) m.textContent='Ready'; }, 300);
-})();
-</script>
-<script>
-const SB_URL='https://zwvqzywizqnohvedsbni.supabase.co';
-const SB_KEY='sb_publishable_Ex4VK3dEdR0t_5hlBJB9FQ_nPmIDTCO';
-let sb=null,profile=null,quiz=null,qi=0,ans=[],left=0,tid=null;
-const map={h:'ph',world:'pworld',tests:'ptests',study:'pstudy',ai:'pai',fees:'pfees',p:'pprof'};
-function show(id){if(window.__rbsShow)return window.__rbsShow(id);document.querySelectorAll('.sc').forEach(function(x){x.classList.remove('on')});var el=document.getElementById(id);if(el)el.classList.add('on')}
-function go(p){document.querySelectorAll('.pg').forEach(function(x){x.classList.remove('on')});var el=document.getElementById(map[p]||'ph');if(el)el.classList.add('on');document.querySelectorAll('.bn button').forEach(function(b){b.classList.toggle('on',b.dataset.p===p||(p==='h'&&b.dataset.p==='h'))});if(p==='p')fillP();if(p==='study')loadS()}
+let sb=null;const SB_URL='https://zwvqzywizqnohvedsbni.supabase.co',SB_KEY='sb_publishable_Ex4VK3dEdR0t_5hlBJB9FQ_nPmIDTCO';
+function ensureSb(cb){if(sb){cb&&cb(true);return}if(typeof supabase!=='undefined'){sb=supabase.createClient(SB_URL,SB_KEY);cb&&cb(true);return}var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';s.onload=function(){try{sb=supabase.createClient(SB_URL,SB_KEY);cb&&cb(true)}catch(e){cb&&cb(false)}};s.onerror=function(){cb&&cb(false)};document.head.appendChild(s)}
+let profile=null,quiz=null,qi=0,ans=[],tid=null,left=0,wrongTopics=[],wires={bat:0,swi:0,bul:0},geoI=0,muhI=0,gameQs=[],gameI=0,gameC=0;
+const CAPS=[{s:'Bihar',c:'Patna',w:['Ranchi','Lucknow']},{s:'Maharashtra',c:'Mumbai',w:['Pune','Nagpur']},{s:'Rajasthan',c:'Jaipur',w:['Udaipur','Jodhpur']},{s:'Tamil Nadu',c:'Chennai',w:['Madurai','Coimbatore']},{s:'West Bengal',c:'Kolkata',w:['Howrah','Durgapur']}];
+const MUH=[{q:'Bahut mehnat',a:'khoon-paseena ek karna',w:['nak katna','bag bag']},{q:'Rahasy khulna',a:'pol khulna',w:['kaan bharna','hosh udna']},{q:'Bahut khush',a:'bag-bag hona',w:['daant peesna','nak katna']}];
+const TESTS=[{id:'ap',title:'Math AP',mins:4,qs:[{q:'d=?',o:['a2-a1','a1-a2','sum'],a:0,topic:'AP'},{q:'nth?',o:['a+(n-1)d','a+nd','nd'],a:0,topic:'nth'},{q:'1,3,5 d?',o:['1','2','3'],a:1,topic:'d'},{q:'Sn?',o:['n/2[2a+(n-1)d]','na','n(a+d)'],a:0,topic:'Sn'}]},{id:'lt',title:'Science Light',mins:3,qs:[{q:'Speed of light?',o:['3e8 m/s','300','3e6'],a:0,topic:'light'},{q:'i equals?',o:['r','2r','0'],a:0,topic:'reflection'},{q:'Concave use?',o:['Headlight','Never','Plane'],a:0,topic:'mirrors'}]}];
+const map={h:'ph',world:'pworld',science:'pscience',math:'pmath',geo:'pgeo',civics:'pcivics',money:'pmoney',hindi:'phindi',games:'pgames',mission:'pmission',tests:'ptests',quiz:'pquiz',res:'pres',results:'presults',ai:'pai',study:'pstudy',fees:'pfees',certificates:'pcert',p:'pprof',admin:'padmin',teach:'pteach'};
+function gp(){try{return JSON.parse(localStorage.getItem('rbs_prog')||'{"pts":0,"streak":0,"tests":0,"last":"","best":0,"k":20,"pr":15,"ex":10,"lf":8}')}catch(e){return{pts:0,streak:0,tests:0,last:'',best:0,k:20,pr:15,ex:10,lf:8}}}
+function sp(p){localStorage.setItem('rbs_prog',JSON.stringify(p));updStats()}
+function addXP(n,sk){const p=gp();p.pts=(p.pts||0)+n;if(sk&&p[sk]!=null)p[sk]=Math.min(100,(p[sk]||0)+Math.ceil(n/2));sp(p);return n}
+function touchStreak(){const p=gp(),d=new Date().toISOString().slice(0,10);if(p.last===d)return;const y=new Date(Date.now()-864e5).toISOString().slice(0,10);p.streak=(p.last===y)?(p.streak||0)+1:1;p.last=d;sp(p)}
+function updStats(){const p=gp();const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};set('stPts',p.pts||0);set('stStreak',p.streak||0);set('stLvl',Math.floor((p.pts||0)/100)+1);set('skK',p.k||0);set('skP',p.pr||0);set('skE',p.ex||0);set('skL',p.lf||0)}
+function show(id){if(window.__rbsShow)return window.__rbsShow(id);document.querySelectorAll('.sc').forEach(x=>x.classList.remove('on'));var el=document.getElementById(id);if(el)el.classList.add('on')}
+function go(p){document.querySelectorAll('.pg').forEach(x=>x.classList.remove('on'));var el=document.getElementById(map[p]||'ph');if(el)el.classList.add('on');document.querySelectorAll('.bn button').forEach(b=>b.classList.toggle('on',b.dataset.p===p||(p==='h'&&b.dataset.p==='h')));if(p==='tests')renderT();if(p==='results')loadR();if(p==='study')loadS();if(p==='p'){fillP();updStats()}if(p==='h'){loadHN();showTT();updStats()}if(p==='admin')loadA();if(p==='geo')showGeo();if(p==='hindi')showMuh();if(p==='certificates')genCert()}
 function tab(t){document.getElementById('bl').style.display=t==='l'?'block':'none';document.getElementById('bs').style.display=t==='s'?'block':'none';document.getElementById('tl').classList.toggle('on',t==='l');document.getElementById('ts').classList.toggle('on',t==='s')}
 function guestEnter(){profile={full_name:'Guest Student',role:'student'};enter()}
-function enter(){show('ap');document.getElementById('gr').textContent='Hi, '+((profile&&profile.full_name)||'Student').split(' ')[0];go('h')}
-function fillP(){document.getElementById('pn').textContent=(profile&&profile.full_name)||'-';document.getElementById('pro').textContent=((profile&&profile.role)||'student').toUpperCase()}
-function ensureSb(cb){
-  if(sb){cb&&cb();return}
-  if(typeof supabase!=='undefined'){sb=supabase.createClient(SB_URL,SB_KEY);cb&&cb();return}
-  var s=document.createElement('script');
-  s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-  s.onload=function(){try{sb=supabase.createClient(SB_URL,SB_KEY)}catch(e){} cb&&cb()};
-  s.onerror=function(){cb&&cb()};
-  document.head.appendChild(s);
-}
-async function signup(){var am=document.getElementById('am');ensureSb(async function(){if(!sb){am.innerHTML='<div class="msg err">Network slow - Guest use karo</div>';return}var email=se.value.trim(),pass=sw.value,name=sn.value.trim(),phone=sph.value.trim(),role=(document.querySelector('input[name=role]:checked')||{}).value||'student';if(!email||pass.length<6){am.innerHTML='<div class="msg err">Email+pass min6</div>';return}try{var res=await sb.auth.signUp({email:email,password:pass,options:{data:{full_name:name,phone:phone,role:role}}});if(res.error){am.innerHTML='<div class="msg err">'+res.error.message+'</div>';return}if(res.data.user)await sb.from('profiles').upsert({id:res.data.user.id,full_name:name,phone:phone,role:role,class_level:sclass.value||null});am.innerHTML='<div class="msg ok">OK - Login</div>';tab('l')}catch(e){am.innerHTML='<div class="msg err">'+e.message+'</div>'}})}
-async function login(){var am=document.getElementById('am');ensureSb(async function(){if(!sb){am.innerHTML='<div class="msg err">Network slow - Guest use karo</div>';return}try{var res=await sb.auth.signInWithPassword({email:le.value.trim(),password:lp.value});if(res.error){am.innerHTML='<div class="msg err">'+res.error.message+'</div>';return}await loadP();enter()}catch(e){am.innerHTML='<div class="msg err">'+e.message+'</div>'}})}
+async function signup(){const am=document.getElementById('am');ensureSb(async function(ok){if(!ok||!sb){am.innerHTML='<div class="msg err">Network - Guest use karo</div>';return}const email=se.value.trim(),pass=sw.value,name=sn.value.trim(),phone=(document.getElementById('sph')||{}).value.trim(),role=(document.querySelector('input[name=role]:checked')||{}).value||'student';if(!email||pass.length<6){am.innerHTML='<div class="msg err">Email+pass min6</div>';return}try{const{data,error}=await sb.auth.signUp({email,password:pass,options:{data:{full_name:name,phone,role}}});if(error){am.innerHTML='<div class="msg err">'+error.message+'</div>';return}if(data.user)await sb.from('profiles').upsert({id:data.user.id,full_name:name,phone,role,class_level:sclass.value||null});am.innerHTML='<div class="msg ok">OK Login</div>';tab('l')}catch(e){am.innerHTML='<div class="msg err">'+e.message+'</div>'}})}
+async function login(){const am=document.getElementById('am');ensureSb(async function(ok){if(!ok||!sb){am.innerHTML='<div class="msg err">Network - Guest</div>';return}try{const{error}=await sb.auth.signInWithPassword({email:le.value.trim(),password:lp.value});if(error){am.innerHTML='<div class="msg err">'+error.message+'</div>';return}await loadP();enter()}catch(e){am.innerHTML='<div class="msg err">'+e.message+'</div>'}})}
 async function logout(){try{if(sb)await sb.auth.signOut()}catch(e){}profile=null;show('au')}
-async function loadP(){if(!sb)return;var u=(await sb.auth.getUser()).data.user;if(!u)return;var data=(await sb.from('profiles').select('*').eq('id',u.id).maybeSingle()).data;if(!data){var m=u.user_metadata||{};data={id:u.id,full_name:m.full_name||u.email,role:m.role||'student'};try{await sb.from('profiles').upsert(data)}catch(e){}}profile=data}
-async function loadS(){var sl=document.getElementById('sl');if(!sb){sl.innerHTML='<p class=tip>Offline</p>';return}try{var data=(await sb.from('materials').select('*').order('created_at',{ascending:false})).data;sl.innerHTML=(data&&data.length)?data.map(function(m){return '<div class=card><b>'+m.title+'</b></div>'}).join(''):'<p class=tip>No materials</p>'}catch(e){sl.innerHTML='<p class=tip>Error</p>'}}
-function startDemoTest(){quiz={title:'Math Demo',qs:[{q:'2+2=?',o:['3','4','5'],a:1},{q:'5x3=?',o:['15','10','8'],a:0},{q:'10-7=?',o:['2','3','4'],a:1}]};qi=0;ans=[];left=120;document.getElementById('quizBox').style.display='block';document.getElementById('resBox').style.display='none';drawQ();timer()}
-function timer(){clearInterval(tid);var tick=function(){tm.textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left<=0){clearInterval(tid);finish();return}left--};tick();tid=setInterval(tick,1000)}
-function drawQ(){var x=quiz.qs[qi];qt.textContent=(qi+1)+'. '+x.q;qo.innerHTML=x.o.map(function(o,i){return '<button class="btn btn-g" style="margin:4px 0" onclick="pick('+i+')">'+(i+1)+'. '+o+'</button>'}).join('');qnxt.textContent=qi===quiz.qs.length-1?'Submit':'Next'}
+async function loadP(){if(!sb)return;const{data:{user}}=await sb.auth.getUser();if(!user)return;let{data}=await sb.from('profiles').select('*').eq('id',user.id).maybeSingle();if(!data){const m=user.user_metadata||{};data={id:user.id,full_name:m.full_name||user.email,role:m.role||'student'};try{await sb.from('profiles').upsert(data)}catch(e){}}profile=data}
+function enter(){show('ap');gr.textContent='Hi, '+((profile&&profile.full_name)||'Student').split(' ')[0];touchStreak();go('h')}
+function fillP(){pn.textContent=(profile&&profile.full_name)||'-';pro.textContent=((profile&&profile.role)||'student').toUpperCase()}
+function showTT(){const r=profile&&profile.role;tt.style.display=(r==='teacher'||r==='admin')?'block':'none'}
+async function loadHN(){if(!sb)return;try{const{data}=await sb.from('notices').select('title,body').eq('is_published',true).order('created_at',{ascending:false}).limit(1);hn.innerHTML=data&&data[0]?'<div class=lc><div class=f><b>'+data[0].title+'</b></div></div>':''}catch(e){}}
+function togWire(k){wires[k]=1-wires[k];document.getElementById(k).classList.toggle('on',!!wires[k]);const lit=wires.bat&&wires.swi&&wires.bul;bulbEl.classList.toggle('lit',lit);cktMsg.textContent=lit?'OK closed circuit - bulb ON':(wires.bat||wires.swi||wires.bul)?'Partial - need all three':'Hypothesis: closed path';if(lit)addXP(15,'ex')}
+function grow(){wV.textContent=water.value;sV.textContent=sun.value;const a=(+water.value++sun.value)/2;plantEl.textContent=a<25?'🌱':a<50?'🌿':a<75?'🌳':'🌲'}
+function finishGrow(){const a=(+water.value++sun.value)/2;addXP(a>50?20:10,'ex')}
+function pctCalc(){const p=+pctP.value,n=+pctN.value;pctOut.textContent=(p&&n)?(p/100*n)+' ('+p+'% of '+n+')':'Enter values';if(p&&n)addXP(5,'pr')}
+function shopCalc(){const n=+shopItem.value;shopOut.textContent=n?(n*0.9).toFixed(2)+' after 10% off':'';if(n)addXP(5,'pr')}
+function showGeo(){const x=CAPS[geoI%CAPS.length];geoI++;geoQ.textContent=x.s+' capital?';const opts=[x.c].concat(x.w).sort(()=>Math.random()-0.5);geoOpts.innerHTML=opts.map(o=>'<button class=opt onclick="geoAns(\''+o+'\',\''+x.c+'\')">'+o+'</button>').join('')}
+function geoAns(a,c){geoMsg.textContent=a===c?'Correct +10 XP':'Answer: '+c;if(a===c)addXP(10,'k')}
+function updBudget(){vEd.textContent=bEd.value;vHe.textContent=bHe.value;vRo.textContent=bRo.value;vFa.textContent=bFa.value;const t=+bEd.value++bHe.value++bRo.value++bFa.value;bTot.textContent='Total: '+t+(t===100?' OK':' (need 100)')}
+function runCM(){const t=+bEd.value++bHe.value++bRo.value++bFa.value;cmOut.innerHTML=t===100?'<div class="msg ok">Plan OK +15 XP</div>':'<div class="msg err">Total must be 100</div>';if(t===100)addXP(15,'lf')}
+function runMoney(){const t=+mFood.value++mRent.value++mEdu.value++mSave.value;monOut.textContent='Total spend plan: '+t;addXP(8,'lf')}
+function showMuh(){const x=MUH[muhI%MUH.length];muhI++;muhQ.textContent=x.q;const opts=[x.a].concat(x.w).sort(()=>Math.random()-0.5);muhOpts.innerHTML=opts.map(o=>'<button class=opt onclick="muhAns(\''+o.replace(/'/g,"\\'")+'\',\''+x.a.replace(/'/g,"\\'")+'\')">'+o+'</button>').join('')}
+function muhAns(a,c){muhMsg.textContent=a===c?'Sahi +10 XP':'Sahi jawab: '+c;if(a===c)addXP(10,'k')}
+function startGame(){gameQs=TESTS[0].qs.concat(TESTS[1].qs).sort(()=>Math.random()-0.5).slice(0,5);gameI=0;gameC=0;gameBox.style.display='block';drawGame()}
+function drawGame(){if(gameI>=gameQs.length){gameQ.textContent='Score '+gameC+'/'+gameQs.length;gameOpts.innerHTML='';addXP(gameC*8,'pr');return}const x=gameQs[gameI];gameScore.textContent='Q '+(gameI+1)+'/5';gameQ.textContent=x.q;gameOpts.innerHTML=x.o.map((o,i)=>'<button class=opt onclick="gamePick('+i+','+x.a+')">'+o+'</button>').join('')}
+function gamePick(i,a){if(i===a)gameC++;gameI++;drawGame()}
+function submitMis(k){const el=k==='math'?misMath:k==='money'?misMon:misHin;if(!el.value.trim()){misOut.innerHTML='<div class="msg err">Write something</div>';return}misOut.innerHTML='<div class="msg ok">Submitted +25 XP</div>';addXP(25,k==='money'?'lf':'pr');el.value=''}
+function renderT(){tlst.innerHTML=TESTS.map(t=>'<div class=lc><b>'+t.title+'</b> · '+t.mins+' min<button class=btn style=margin-top:6px onclick="start(\''+t.id+'\')">Start</button></div>').join('')}
+function start(id){quiz=TESTS.find(t=>t.id===id);if(!quiz)return;qi=0;ans=[];left=quiz.mins*60;wrongTopics=[];go('quiz');drawQ();timer()}
+function timer(){clearInterval(tid);const tick=()=>{tm.textContent=String(Math.floor(left/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');if(left<=0){clearInterval(tid);finish();return}left--};tick();tid=setInterval(tick,1000)}
+function drawQ(){const x=quiz.qs[qi];qn.textContent='Q'+(qi+1)+'/'+quiz.qs.length;qt.textContent=x.q;qo.innerHTML=x.o.map((o,i)=>'<button class="opt'+(ans[qi]===i?' sel':'')+'" onclick="pick('+i+')">'+(i+1)+'. '+o+'</button>').join('');qnxt.textContent=qi===quiz.qs.length-1?'Submit':'Next'}
 function pick(i){ans[qi]=i;drawQ()}
 function nextQ(){if(qi<quiz.qs.length-1){qi++;drawQ()}else finish()}
-function finish(){clearInterval(tid);var c=0;quiz.qs.forEach(function(q,i){if(ans[i]===q.a)c++});var pct=Math.round(c/quiz.qs.length*100);document.getElementById('quizBox').style.display='none';document.getElementById('resBox').style.display='block';rs.textContent=pct+'% ('+c+'/'+quiz.qs.length+')';var pts=c*10;var p=JSON.parse(localStorage.getItem('rbs_prog')||'{"pts":0}');p.pts=(p.pts||0)+pts;localStorage.setItem('rbs_prog',JSON.stringify(p));stPts.textContent=p.pts;stLvl.textContent=Math.floor(p.pts/100)+1}
-function askAI(){var q=aiQ.value.trim();if(!q)return;var a='Soch ke try karo.';var t=q.toLowerCase();if(t.indexOf('light')>=0||t.indexOf('prakash')>=0)a='Light seedha line me. i=r.';if(t.indexOf('ap')>=0)a='AP: nth=a+(n-1)d';chatBox.innerHTML+='<div style="margin:6px 0"><b style="color:var(--g)">You:</b> '+q.replace(/</g,'&lt;')+'</div><div style="margin:6px 0"><b>AI:</b> '+a+'</div>';aiQ.value='';chatBox.scrollTop=9999}
-function payUPI(){var amt=payAmt.value||'500';window.open('https://wa.me/918873880542?text='+encodeURIComponent('RBS Fees Rs '+amt),'_blank')}
-setTimeout(function(){
-  ensureSb(function(){
-    if(!sb)return;
-    sb.auth.getSession().then(function(res){
-      var session=res&&res.data&&res.data.session;
-      if(session){loadP().then(function(){enter()}).catch(function(){})}
-    }).catch(function(){});
-  });
-}, 500);
+function finish(){clearInterval(tid);let c=0;wrongTopics=[];quiz.qs.forEach((q,i)=>{if(ans[i]===q.a)c++;else wrongTopics.push(q.topic||'?')});const pct=Math.round(c/quiz.qs.length*100);rs.textContent=pct+'%';rd.textContent=c+'/'+quiz.qs.length;const pts=c*10;const p=gp();p.pts=(p.pts||0)+pts;p.tests=(p.tests||0)+1;p.best=Math.max(p.best||0,pct);p.pr=Math.min(100,(p.pr||15)+5);sp(p);rp.textContent='+'+pts+' XP';if(wrongTopics.length){weakBox.style.display='block';weakBox.innerHTML='Weak: '+[...new Set(wrongTopics)].join(', ')}else weakBox.style.display='none';go('res');try{const L=JSON.parse(localStorage.getItem('rbs_r')||'[]');L.unshift({t:quiz.title,c,n:quiz.qs.length,pct});localStorage.setItem('rbs_r',JSON.stringify(L.slice(0,30)))}catch(e){}}
+function loadR(){try{const L=JSON.parse(localStorage.getItem('rbs_r')||'[]');rl.innerHTML=L.length?L.map(x=>'<div class=lc><b>'+x.t+'</b> <span style=color:var(--g)>'+x.pct+'%</span></div>').join(''):'<p class=tip>No tests yet</p>'}catch(e){}}
+async function loadS(){if(!sb){sl.innerHTML='<p class=tip>Offline</p>';return}try{const{data}=await sb.from('materials').select('*').order('created_at',{ascending:false});sl.innerHTML=(data&&data.length)?data.map(m=>'<div class=lc><b>'+m.title+'</b> '+(m.file_url?'<a class=chip href="'+m.file_url+'" target=_blank>Open</a>':'')+'</div>').join(''):'<p class=tip>No materials</p>'}catch(e){sl.innerHTML='<p class=tip>Error</p>'}}
+async function saveMat(){if(!sb){mm.innerHTML='<div class="msg err">Login as teacher</div>';return}const title=mt.value.trim();if(!title)return;const{error}=await sb.from('materials').insert({title,file_url:mu.value.trim()||null});mm.innerHTML=error?'<div class="msg err">'+error.message+'</div>':'<div class="msg ok">Saved</div>'}
+function genCert(){const p=gp();certName.textContent=(profile&&profile.full_name)||'RBS Student';certMeta.textContent='XP '+(p.pts||0)+' · Level '+(Math.floor((p.pts||0)/100)+1)}
+async function loadA(){if(!sb){ab.innerHTML='<p class=tip>Login admin</p>';return}try{const{data,error}=await sb.from('enquiries').select('*').order('created_at',{ascending:false}).limit(30);if(error){ab.innerHTML='<div class="msg err">'+error.message+'</div>';return}ab.innerHTML=(data&&data.length)?data.map(e=>'<div class=lc><b>'+e.student_name+'</b> '+e.phone+'</div>').join(''):'None'}catch(e){}}
+async function postNotice(){if(!sb)return;const title=ntTitle.value.trim();if(!title)return;const{error}=await sb.from('notices').insert({title,is_published:true});ntMsg.innerHTML=error?'<div class="msg err">'+error.message+'</div>':'<div class="msg ok">OK</div>'}
+function saveFee(){const amt=payAmt.value||'500';payMsg.textContent='Recorded locally · opening WhatsApp';window.open('https://wa.me/918873880542?text='+encodeURIComponent('RBS Fees Rs '+amt),'_blank')}
+function aiReply(q){q=(q||'').toLowerCase();if(/ap|progression|nth/.test(q))return 'Pehle socho: d=a2-a1. Hint: nth=a+(n-1)d.';if(/light|reflect/.test(q))return 'Angle i aur r? Hint: i=r.';if(/circuit|bulb/.test(q))return 'Closed path? Science Lab me try karo.';if(/percent|%|discount/.test(q))return '(p/100)*n. Math Lab me shopping try.';return 'Achha sawal. Pehle socho, phir Lab me experiment.'}
+function askAI(){const q=aiQ.value.trim();if(!q)return;chatBox.innerHTML+='<div style=margin:6px 0><b style=color:var(--g)>You:</b> '+q.replace(/</g,'<')+'</div><div style=margin:6px 0><b>AI:</b> '+aiReply(q)+'</div>';aiQ.value='';chatBox.scrollTop=9999;addXP(2,'k')}
 try{if('serviceWorker' in navigator)navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})}catch(e){}
-</script>
-</body>
-</html>
+setTimeout(function(){ensureSb(function(ok){if(!ok||!sb)return;sb.auth.getSession().then(function(res){var session=res&&res.data&&res.data.session;if(session){loadP().then(function(){enter()}).catch(function(){})}}).catch(function(){})})},800);
+</script></body></html>
