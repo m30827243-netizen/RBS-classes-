@@ -1,39 +1,47 @@
-# RBS Classes Digital Platform
+# RBS Classes — Digital Learning Platform
 
-**Live app:** https://rbs-classes-web.vercel.app
+**Tagline:** Learn. Practice. Grow.  
+**Location:** Pali Majhila Tol  
+**Director:** Bhagwan Ji Sharma  
+**Live:** https://rbs-classes-web.vercel.app
 
-**GitHub:** https://github.com/m30827243-netizen/RBS-classes-
+## Vision
+Scalable education ecosystem: students, teachers, institute ops, assessment, AI assistance, analytics — mobile-first PWA.
 
-Coaching institute · Class 1–10 · Pali Majhila Tol  
-Director: **Bhagwan Ji Sharma** · WhatsApp: **+91 8873880542**
+## Product pillars
+- RBS Learning: Learn + Practice + Test + AI
+- RBS Faculty: Create + Teach + Assess
+- RBS Institute: Manage + Operate + Grow
 
-## Phase 1–3 Features
-- Role auth: Student / Parent / Teacher / Admin (Supabase)
-- Live classes, Courses, Test series (timer + score)
-- AI Tutor, Points, Streak, Certificates, Badges
-- Study material, Fees (WhatsApp/UPI), Enquiry, Notices
-- Teacher panel + Admin enquiries
-- PWA (install on phone)
-
-## Files
-| File | Purpose |
-|------|--------|
-| index.html | App shell |
-| app.js | Phase 3 logic |
-| manifest.json + sw.js | PWA |
-| icon.svg | Icon |
-| robots.txt + sitemap.xml | SEO |
-| supabase-extra.sql | DB helpers |
+## Current live features
+- Auth: Login / Sign up (Supabase) + Guest + Demo Student/Teacher
+- Roles: student, parent, teacher, admin
+- Learning World: Science circuit & plant, Math, Geo, Civics budget, Money, Hindi muhavra, Games, Missions
+- MCQ tests with timer, score, weak topics, XP / streak / skills
+- Study materials, notices, fees (WhatsApp), certificates (print)
+- Teacher panel, Admin enquiries
+- Teachers Day 2026 branding
+- PWA, robots.txt, sitemap, JSON-LD SEO
 
 ## Stack
-Static HTML/JS · Supabase · Vercel
-
-## Link Vercel to this repo
-1. Vercel → rbs-classes-web → Settings → Git
-2. Connect `m30827243-netizen/RBS-classes-`
-3. Branch: main
-
-Then Grok + Claude push only to GitHub — no overwrite fight.
+- Frontend: Single-page HTML/CSS/JS (mobile-first)
+- Backend: Supabase (Auth + PostgreSQL)
+- Hosting: Vercel
+- Source: this GitHub repo
 
 ## Supabase
 - URL: https://zwvqzywizqnohvedsbni.supabase.co
+- Tables: profiles, courses, notices, enrollments, tests, results, enquiries, materials
+- Tip: Auth settings me Email confirm OFF rakho for smooth signup, ya Demo/Guest use karo.
+
+## Phases status
+- Phase 0 Foundation: partial (auth, deploy)
+- Phase 1 Core Learning: partial (dashboard, materials, progress local)
+- Phase 2 Assessment: partial (MCQ engine, results local)
+- Phase 3 Faculty & Institute: shell (teacher panel, admin enquiries)
+- Phase 4 AI: rule-based tutor
+- Phase 5 Commerce: fees WhatsApp link
+- Phase 6 Scale: PWA ready
+
+## Brand
+Navy / gold · Excellence Through Education & Discipline · Estd 2019 · Class 1–10
