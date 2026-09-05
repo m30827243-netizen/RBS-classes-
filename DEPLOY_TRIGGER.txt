@@ -1,0 +1,6 @@
+Teachers Day publish trigger
+
+This file was added to trigger GitHub Pages deployment for RBS Classes.
+
+Publish time (UTC): 2026-09-05T06:35:00Z
+Note: Trigger committed by GitHub Copilot Chat Assistant at the owner's request to publish site for Teachers' Day.
