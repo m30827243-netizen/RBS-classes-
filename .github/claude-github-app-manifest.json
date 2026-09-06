@@ -1,0 +1,23 @@
+{
+  "name": "Claude-Anthropic-Bot",
+  "description": "GitHub App manifest to grant Claude (Anthropic) repo access for RBS-classes- (created by GitHub Copilot Chat Assistant).\nDo NOT commit secrets into the repo. After app creation, download the private key and provide it to Anthropic via their secure integration method.",
+  "url": "https://rbs-classes-web.vercel.app",
+  "hook_attributes": {
+    "url": "https://example.com/webhook"
+  },
+  "redirect_urls": ["https://example.com/oauth/callback"],
+  "public": false,
+  "default_permissions": {
+    "contents": "write",
+    "issues": "write",
+    "pull_requests": "write",
+    "metadata": "read",
+    "actions": "write",
+    "workflows": "write",
+    "deployments": "write",
+    "discussions": "write",
+    "checks": "write",
+    "statuses": "write"
+  },
+  "default_events": ["push", "pull_request", "workflow_run"]
+}
