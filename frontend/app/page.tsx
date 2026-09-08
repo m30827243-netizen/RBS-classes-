@@ -9,7 +9,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="px-6 py-4 border-b border-primary-500">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">🎓 RBS Classes</h1>
+          <h1 className="text-2xl font-bold">📚 RBS Classes</h1>
           <div className="space-x-4">
             <Link href="/auth/login" className="hover:text-accent-500 transition">
               Login
@@ -50,7 +50,7 @@ export default function Home() {
               { icon: '📊', title: 'Analytics', desc: 'Detailed Performance Analysis' },
               { icon: '🏆', title: 'Certificates', desc: 'Industry-Recognized Certificates' },
             ].map((feature, i) => (
-              <div key={i} className="bg-primary-700 p-6 rounded-lg border border-primary-500">
+              <div key={i} className="bg-primary-700 p-6 rounded-lg border border-primary-500 hover:border-accent-500 transition">
                 <div className="text-4xl mb-3">{feature.icon}</div>
                 <h4 className="text-lg font-semibold mb-2">{feature.title}</h4>
                 <p className="text-gray-400">{feature.desc}</p>
@@ -60,10 +60,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="px-6 py-16 bg-primary-700/50">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 text-center">
+          {[
+            { num: '10,000+', label: 'Active Students' },
+            { num: '500+', label: 'Courses' },
+            { num: '50+', label: 'Expert Teachers' },
+            { num: '100+', label: 'Exam Categories' },
+          ].map((stat, i) => (
+            <div key={i}>
+              <div className="text-4xl font-bold text-accent-500 mb-2">{stat.num}</div>
+              <div className="text-gray-400">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="px-6 py-16 text-center">
-        <h3 className="text-3xl font-bold mb-6">अभी शुरू करें</h3>
-        <p className="text-lg text-gray-300 mb-8">हजारों students पहले से RBS Classes के साथ सीख रहे हैं</p>
+        <h3 className="text-3xl font-bold mb-6">आभी शुरू करें</h3>
+        <p className="text-lg text-gray-300 mb-8">हजारों students पहले से RBS Classes के स��थ सीख रहे हैं</p>
         <Button className="bg-accent-500 hover:bg-accent-600 text-lg px-8 py-3">
           <Link href="/auth/signup">अपना Account बनाएं</Link>
         </Button>
@@ -72,6 +89,11 @@ export default function Home() {
       {/* Footer */}
       <footer className="px-6 py-8 border-t border-primary-500 text-center text-gray-400">
         <p>&copy; 2026 RBS Classes. All rights reserved.</p>
+        <div className="mt-4 space-x-6 text-sm">
+          <Link href="#" className="hover:text-white">Privacy Policy</Link>
+          <Link href="#" className="hover:text-white">Terms of Service</Link>
+          <Link href="#" className="hover:text-white">Contact Us</Link>
+        </div>
       </footer>
     </div>
   )
